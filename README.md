@@ -1,2 +1,3 @@
 # GroceryListApp
-my standard prototype to evaluate software
+
+My standard simple master detail prototype application to evaluate software.

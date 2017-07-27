@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Grocery List.Windows"
+                xmlns:app="clr-namespace:GroceryListApp"
+             x:Class="GroceryListApp.GroceryListPage" 
+             Title="Grocery List">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <app:StringToBoolConverter x:Key="StringToBoolConverter" ></app:StringToBoolConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+   
+    <ContentPage.Content>
+        <StackLayout>
+            <Image IsVisible="True"
+               VerticalOptions="Start" 
+               HorizontalOptions="Fill" 
+               Source="food_header.png"
+               Aspect="Fill"
+               >
+            </Image>
+
+            <StackLayout Margin="20">
+
+                <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                    <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                        <Button Text="Clear" BorderRadius="4" />
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                        <Button Text="Clear Bought" BorderRadius="4" />
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                        <Button Text="Email" BorderRadius="4" />
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical"  HorizontalOptions="StartAndExpand" >
+                    <StackLayout VerticalOptions="StartAndExpand">
+                        <Label Text="Grocery Item" HorizontalOptions="FillAndExpand"/>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand">
+                            <Entry x:Name="groceryItem" Placeholder="Grocery Item" HorizontalOptions="StartAndExpand" WidthRequest="250" />
+                            <Button x:Name="AddItem" Text="Add Item" BorderRadius="4" HorizontalOptions="End"/>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+
+                    <ListView x:Name="groceryItemsListView" >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout BackgroundColor="#eee" Orientation="Horizontal">
+                                        <Switch  IsToggled="{Binding Path=bought, Converter={StaticResource StringToBoolConverter}, Mode=TwoWay }" HorizontalOptions="Start" VerticalOptions="Center" Toggled="Switch_Toggled"></Switch>
+                                        <Label Text="{Binding what}" HorizontalOptions="FillAndExpand" VerticalOptions="Center"></Label>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    
+                </StackLayout>
+                
+                <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                    <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                        <Button Text="Profile" BorderRadius="4" />
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                        <Button Text="Logout" BorderRadius="4" />
+                    </StackLayout>
+                </StackLayout>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+    

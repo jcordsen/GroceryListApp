@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:GroceryListApp"
+             x:Class="GroceryListApp.MainPage" Title="Grocery List">
+
+    <StackLayout >
+        <Image IsVisible="True"
+               VerticalOptions="Start" 
+               HorizontalOptions="Fill" 
+               Source="food_header.png"
+               Aspect="Fill"
+               >
+        </Image>
+
+        <StackLayout Margin="20">
+            <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand" >
+                <StackLayout VerticalOptions="StartAndExpand">
+                    <Label Text="Username" HorizontalOptions="Fill"/>
+                    <Entry x:Name="usernameEntry" Placeholder="username" HorizontalOptions="Fill" WidthRequest="300"/>
+                    <Label Text="Password" HorizontalOptions="Fill"/>
+                    <Entry x:Name="passwordEntry" IsPassword="true" HorizontalOptions="Fill" WidthRequest="300"/>
+                    <Label x:Name="messageLabel" />
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                    <Button Text="Log In" BorderRadius="4" Clicked="OnLoginButtonClickedAsync"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                    <Button Text="Register" BorderRadius="4" Clicked="OnRegisterButtonClicked"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
